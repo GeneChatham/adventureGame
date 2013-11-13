@@ -34,11 +34,27 @@ class Adventure
 	def trial
 		if @destination == "WOODS"
 			puts "You come across a whomping willow that tries to attack you.  What do you do?  RUN, FIGHT, or TALK?"
+			action = self.actions
+			if action == "TALK"
+				puts "You calm down the whomping willow with your soothing voice.  It gives you a vast fortune in return for becoming its friend.  YOU WIN!"
+			elsif action == "FIGHT"
+				puts "You are and idiot if you think you can fight a tree."
+				self.dead
+			else
+				puts "As you try to run away, you trip on a root and are smashed by the tree's massive whomping branches."
+				self.dead
+			end
 		end
+
+		# if @destination == "CASTLE"
 	end
 
 	def dead
 		puts "You die. GAME OVER"
+	end
+
+	def actions
+		action = gets.chomp.to_s.upcase
 	end
 end
 
